@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: artifacts:tensorflow-android-1.12.0:unspecified@jar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/tensorflow-android-1.12.0/build/.transforms/f16485d8c7db3ae99aa770e34418cb25/tensorflow-android-1.12.0/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/tensorflow-android-1.12.0/build/.transforms/f16485d8c7db3ae99aa770e34418cb25/tensorflow-android-1.12.0/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

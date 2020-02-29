@@ -1,5 +1,0 @@
-# Emre Üzüm
-
-## İkçü
-
-Öğrenciyim.
