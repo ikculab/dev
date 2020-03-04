@@ -2,5 +2,7 @@
 ## dev
 
 ```java
-System.out.println("hello world!");
+void display() {
+  System.out.println("hello world!");
+}
 ```
