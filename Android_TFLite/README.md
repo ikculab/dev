@@ -1,6 +1,6 @@
 # dev
 ## dev
 
-``java
+```java
 System.out.println("hello world!");
-``
+```
