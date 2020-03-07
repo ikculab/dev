@@ -53,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
         btnClassify = findViewById(R.id.btnClassify);
         result_tv = findViewById(R.id.result_tv);
 
-
         try {
             opt.setUseNNAPI(true);
             tflite = new Interpreter(loadModelFile(), opt); // load tflite model
@@ -62,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
 
     public void btnClassifyClicked(View v){
 		// since we have 10 classes in our model, our output will be [1,10] array
@@ -92,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             }
         }
+		
         List<String> labels = Arrays.asList("T-shirt/top", "Trouser!", "Pullover", "Dress", "Coat", "Sandal", "Shirt", "Sneaker", "Bag", "Ankle boot");
 
 		// writing the label onto textview
@@ -117,7 +116,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 	
-
     public void btnGalleryClicked(View v){
         Intent intent = new Intent();
         intent.setType("image/*");
@@ -125,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
 
         startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE);
     }
+	
     public void btnCameraClicked(View v){
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(intent, 0);
@@ -140,19 +139,21 @@ public class MainActivity extends AppCompatActivity {
         return fileChannel.map(FileChannel.MapMode.READ_ONLY, startOffset, declaredLength);
     }
 
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode==0 && resultCode == RESULT_OK){
+			
             bitmap = (Bitmap) data.getExtras().get("data");
             imageView.setImageBitmap(bitmap);
+			
         }
 
         if (requestCode==PICK_IMAGE && resultCode == RESULT_OK){
             assert data != null;
             imageUri = data.getData();
+			
             try{
                 bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),imageUri);
                 imageView.setImageBitmap(bitmap);
@@ -160,8 +161,9 @@ public class MainActivity extends AppCompatActivity {
             catch (IOException e) {
                 e.printStackTrace();
             }
+			
         }
+		
     }
-
 
 }
