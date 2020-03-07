@@ -58,11 +58,9 @@ Ankle boot'''.split()
 
 import pathlib
 # ---------------------------- converting the trained model into tflite model -------------------------
-# converter = tf.lite.TFLiteConverter.from_saved_model('cnn-fashion.h5')  # if the code below doesn't work try this
 
 converter = tf.lite.TFLiteConverter.from_keras_model_file('cnn-fashion.h5')
 
-# converter = tf.lite.TFLiteConverter.from_saved_model('')
 converter.optimizations = [tf.lite.Optimize.OPTIMIZE_FOR_LATENCY]
 tflite_model = converter.convert()
 
