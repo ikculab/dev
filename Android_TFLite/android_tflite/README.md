@@ -18,7 +18,7 @@ dependencies {
 ```
 
 We need to create assets folder. Right click on app > New > Folder > Assets Folder. Make sure that you are placing that folder into the right location. ("app/src/main/assets/")
-Also you can check [GitHub](https://abhiandroid.com/androidstudio/create-assets-folder-android-studio-html-files.html)
+Also you can check [Creating Assets Folder](https://abhiandroid.com/androidstudio/create-assets-folder-android-studio-html-files.html)
 Then move your tflite model into assets folder.
 
 
