@@ -132,3 +132,4 @@ OK. Now we had 1x10 vector as output. Let's convert those zeros and ones into ou
 **Don't forget to move the images from dataset to the phone you are using this.**
 
 **Don't worry if you get a wrong prediction. Try the same image in python tflite model trying script and observe the result. If the result is also the same in python, then consider the accuracy of your model training.**
+
