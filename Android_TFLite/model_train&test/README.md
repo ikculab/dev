@@ -11,15 +11,7 @@ fashion_mnist = tf.keras.datasets.fashion_mnist
 (x_train, y_train), (x_test, y_test) = fashion_mnist.load_data()
 ```
 
-Train your model using neural network architectures (In this case the model is trained with CNN architecture).
-
-Then save your model as .h5 file.
-
-```python
-model.save('cnn-fashion.h5')
-```
-
-If any error occurs while converting .h5 file to .tflite file, in order to not waste time by training the model again, after your model is saved as .h5 comment that part;
+Train your model using neural network architectures (In this case the model is trained with CNN architecture) then save it to call it back for to prevent wasting time if any error occurs while converting .h5 model to .tflite format.
 
 ```python
 i = Input(shape=x_train[0].shape)
@@ -41,7 +33,7 @@ r = model.fit(x_train, y_train, validation_data=(x_test, y_test), epochs=EPOCH)
 model.save('cnn-fashion.h5')        # saving trained model
 ```
 
-and call your model by uncommenting;
+After saving your model you can comment the above codes and uncomment the below code to call your model back;
 ```python
 # model = tf.keras.models.load_model('your_model.h5')
 ```
