@@ -60,8 +60,7 @@ tflite_model_file = pathlib.Path('./your_model_name.tflite')
 tflite_model_file.write_bytes(tflite_model)
 ```
 
-#### Important!
-**Since we need the weights of the model, make sure that your are saving the weights!**
+**.tflite model requires the weights of the model trained. Make sure that your are saving the weights in the right format, otherwise you will get an error while converting it to .tflite model.**
 
 ### Testing your .tflite model
 Create another python script and import required libraries (tensorflow, numpy and opencv).
