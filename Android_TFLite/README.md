@@ -17,4 +17,4 @@
 
 	* ![result3](https://res.cloudinary.com/dq17rmv0e/image/upload/v1583831142/doc%20images/app_photo6_i7iens.png)
 
-**!! The layout is prepared basically in order to use classification !!**
+*!! The layout is prepared basically in order to use classification !!*
