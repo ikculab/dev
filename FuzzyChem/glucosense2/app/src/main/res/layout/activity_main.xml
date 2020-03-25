@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/buttonsLay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/renk3">
+
+        <include layout="@layout/top_bar"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/imageView"
+            android:scaleType="fitCenter"
+            android:layout_marginTop="65dp"
+            android:layout_above="@id/btnSend" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/firstView"
+            android:layout_marginTop="65dp"
+            app:srcCompat="@drawable/atoms8"
+            android:background="@color/renk2"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circImView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/btnSend"
+            android:layout_marginTop="50dp"
+            app:civ_border_width="2dp"
+            app:civ_border_color="#FF000000"/>
+
+        <com.theartofdev.edmodo.cropper.CropImageView
+            android:id="@+id/cropImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.085"
+            tools:layout_editor_absoluteX="0dp"
+            android:layout_above="@id/btnSend">
+        </com.theartofdev.edmodo.cropper.CropImageView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="6dp"
+            android:layout_marginEnd="7dp"
+            app:backgroundTint="@color/darkBlue2"
+            app:srcCompat="@drawable/ic_addphoto"
+            android:onClick="btnCameraClicked"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_gallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="6dp"
+            android:layout_marginEnd="70dp"
+            app:backgroundTint="@color/darkBlue2"
+            app:srcCompat="@drawable/ic_gallery"
+            android:onClick="btnGalleryClicked"/>
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:id="@+id/btnCrop"
+            android:text="Crop"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:background="@drawable/btn_on"
+            android:layout_alignParentBottom="true"
+            android:onClick="btnCropClicked"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:id="@+id/btnSave"
+            android:text="Save"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:background="@drawable/btn_on"
+            android:layout_alignParentBottom="true"
+            android:onClick="btnSaveClicked"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:id="@+id/btnSend"
+            android:text="Calculate"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:background="@drawable/btn_on"
+            android:layout_above="@id/btnCrop"
+            android:layout_marginBottom="3dp"
+            android:onClick="btnSendClicked"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:id="@+id/cropStyleLayout"
+            android:layout_above="@id/btnSave">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true">
+
+                <RadioButton
+                    android:id="@+id/rectRad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rectangle"
+                    android:onClick="btnRectRadClicked"/>
+
+                <RadioButton
+                    android:id="@+id/circRad"
+                    android:layout_toEndOf="@id/rectRad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Circle"
+                    android:layout_marginStart="30dp"
+                    android:onClick="btnCircRadClicked"/>
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

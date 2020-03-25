@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="darkRed">#B62304</color>
+    <color name="darkBlue">#033A8E</color>
+    <color name="white">#FFF</color>
+    <color name="gray">#808080</color>
+    <color name="colororange">#DF7D15</color>
+    <color name="colorgreen">#06960A</color>
+    <color name="colorpurple">#9100E5</color>
+    <color name="bordo">#750312</color>
+    <color name="black">#000</color>
+    <color name="darkBlue2">#1C446A</color>
+    <color name="lightBlue">#7EACD7</color>
+    <color name="renk">#616161</color>
+    <color name="renk2">#7798B7</color>
+    <color name="renk3">#ADADB3</color>
+</resources>

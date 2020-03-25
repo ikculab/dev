@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "953420119337",
+    "firebase_url": "https://glucosense2.firebaseio.com",
+    "project_id": "glucosense2",
+    "storage_bucket": "glucosense2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:953420119337:android:de016c829217577a3e4b38",
+        "android_client_info": {
+          "package_name": "com.example.glucosense2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "953420119337-8244nfrmc7dm1eail0mflvlmurbt56qr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.glucosense2",
+            "certificate_hash": "6d6872413678addb9fe3cf0ffe1cc6b8835c13a5"
+          }
+        },
+        {
+          "client_id": "953420119337-c52j2kbkk446lfnkrijcb9rq205tpisr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAD48SP9DdrZyBBGbJO48FDcX_JGakWh0w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "953420119337-c52j2kbkk446lfnkrijcb9rq205tpisr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
