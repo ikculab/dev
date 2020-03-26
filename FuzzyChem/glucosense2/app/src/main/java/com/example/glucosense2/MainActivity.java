@@ -99,7 +99,6 @@ public class MainActivity extends AppCompatActivity {
         btnSend = findViewById(R.id.btnSend);
         btnSend.setVisibility(View.INVISIBLE);
 
-        setupToolbar();
 
         labels = new ArrayList<>();
         RGBvalues = new ArrayList<>();

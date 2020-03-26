@@ -61,7 +61,6 @@ public class ReceiveData extends AppCompatActivity {
         rDatabase = FirebaseDatabase.getInstance().getReference().child("dataValues").child("1");
 
         new getVals().execute();
-        //progressAnimator = ObjectAnimator.ofInt(pro_bar, "progress", 20, pro_bar.getProgress());
     }
 
     private class getVals extends AsyncTask<Void, Void, Void> {

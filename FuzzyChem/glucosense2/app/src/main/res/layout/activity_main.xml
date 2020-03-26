@@ -28,8 +28,8 @@
             android:layout_height="match_parent"
             android:id="@+id/firstView"
             android:layout_marginTop="65dp"
-            app:srcCompat="@drawable/atoms8"
-            android:background="@color/renk2"/>
+            app:srcCompat="@drawable/background_image"
+            android:background="@color/renk4"/>
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/circImView"
