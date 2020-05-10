@@ -49,16 +49,14 @@ public class MainActivity extends AppCompatActivity {
 
     ImageView imageView, firstView;
     CropImageView cropImageView;
-    Bitmap bitmap, circleBitmap;
+    Bitmap bitmap;
     Uri imageUri;
-    CircleImageView circleImageView;
     android.graphics.Matrix matrix = new android.graphics.Matrix();
     Float scale = 1f;
     ScaleGestureDetector SGD;
 
     private static final int PICK_IMAGE = 1;
     Button btnCrop, btnSave, btnSend;
-    RadioButton rectRad, circRad;
     FloatingActionButton fab_camera, fab_gallery;
     int a, b, t;
     float[][][][] input;
@@ -79,16 +77,8 @@ public class MainActivity extends AppCompatActivity {
         imageView = findViewById(R.id.imageView);
         cropImageView = findViewById(R.id.cropImageView);
         cropImageView.setFixedAspectRatio(false);
-        circleImageView = findViewById(R.id.circImView);
-        circleImageView.setVisibility(View.INVISIBLE);
 
         firstView = findViewById(R.id.firstView);
-
-        rectRad = findViewById(R.id.rectRad);
-        rectRad.setVisibility(View.INVISIBLE);
-        rectRad.setChecked(true);
-        circRad = findViewById(R.id.circRad);
-        circRad.setVisibility(View.INVISIBLE);
 
         btnCrop = findViewById(R.id.btnCrop);
         btnCrop.setVisibility(View.INVISIBLE);
@@ -120,20 +110,15 @@ public class MainActivity extends AppCompatActivity {
 
         startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE);
         imageView.setVisibility(View.VISIBLE);
-        circleImageView.setVisibility(View.INVISIBLE);
     }
     public void btnCameraClicked(View v){
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(intent, 0);
         imageView.setVisibility(View.VISIBLE);
-        circleImageView.setVisibility(View.INVISIBLE);
     }
     public void btnCropClicked(View v){
         btnSend.setVisibility(View.INVISIBLE);
-        rectRad.setVisibility(View.VISIBLE);
-        circRad.setVisibility(View.VISIBLE);
         imageView.setVisibility(View.INVISIBLE);
-        circleImageView.setVisibility(View.INVISIBLE);
         cropImageView.setVisibility(View.VISIBLE);
         firstCrop();
     }
@@ -142,45 +127,8 @@ public class MainActivity extends AppCompatActivity {
         btnSave.setVisibility(View.INVISIBLE);
         btnSend.setVisibility(View.VISIBLE);
         btnCrop.setVisibility(View.VISIBLE);
-        rectRad.setVisibility(View.INVISIBLE);
-        circRad.setVisibility(View.INVISIBLE);
     }
     public void btnSendClicked(View v){Send();}
-    public void btnRectRadClicked(View v){
-        cropImageView.setCropShape(CropImageView.CropShape.RECTANGLE);
-        cropImageView.setFixedAspectRatio(false);
-        circleImageView.setVisibility(View.INVISIBLE);
-        circRad.setChecked(false);
-        t=1;
-    }
-    public void btnCircRadClicked(View v){
-        cropImageView.setCropShape(CropImageView.CropShape.OVAL);
-        cropImageView.setFixedAspectRatio(true);
-        imageView.setVisibility(View.INVISIBLE);
-        rectRad.setChecked(false);
-        t=2;
-    }
-
-    private Bitmap getRoundedCroppedBitmap(Bitmap bitmapx) {
-        int widthLight = bitmapx.getWidth();
-        int heightLight = bitmapx.getHeight();
-
-        Bitmap out = Bitmap.createBitmap(bitmapx.getWidth(), bitmapx.getHeight(), Bitmap.Config.ARGB_8888);
-
-        Canvas canvas = new Canvas(out);
-        Paint paintColor = new Paint();
-        paintColor.setFlags(Paint.ANTI_ALIAS_FLAG);
-
-        RectF rectF = new RectF(new Rect(0, 0, widthLight, heightLight));
-
-        canvas.drawRoundRect(rectF, widthLight / 2 ,heightLight / 2,paintColor);
-
-        Paint paintImage = new Paint();
-        paintImage.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_ATOP));
-        canvas.drawBitmap(bitmapx, 0, 0, paintImage);
-
-        return out;
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -233,15 +181,8 @@ public class MainActivity extends AppCompatActivity {
     public void Save(){
 
         bitmap = cropImageView.getCroppedImage();
-        if(t==2){
-            bitmap = getRoundedCroppedBitmap(bitmap);
-            imageView.setImageBitmap(bitmap);
-            imageView.setVisibility(View.VISIBLE);
-            imageView.setBackgroundColor(Color.rgb(0,0,0));
-        }else {
-            imageView.setImageBitmap(bitmap);
-            imageView.setVisibility(View.VISIBLE);
-        }
+        imageView.setImageBitmap(bitmap);
+        imageView.setVisibility(View.VISIBLE);
         cropImageView.setVisibility(View.INVISIBLE);
 
     }
@@ -249,16 +190,9 @@ public class MainActivity extends AppCompatActivity {
     public void Send(){
         /* rgb values will be send to firebase in here */
         ByteArrayOutputStream bStream = new ByteArrayOutputStream();
-        if(t==2){
-            imageView.invalidate();
-            BitmapDrawable draw = (BitmapDrawable) imageView.getDrawable();
-            circleBitmap = draw.getBitmap();
-            getRGB(circleBitmap);
-            circleBitmap.compress(Bitmap.CompressFormat.PNG, 100, bStream);
-        }else {
-            getRGB(bitmap);
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, bStream);
-        }
+
+        getRGB(bitmap);
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, bStream);
 
         Log.e("rgb values: ", String.valueOf(labels));
 
@@ -307,29 +241,6 @@ public class MainActivity extends AppCompatActivity {
 
         labels = Arrays.asList(r, g, b);
         RGBvalues = Arrays.asList(String.valueOf(r), String.valueOf(g), String.valueOf(b));
-    }
-
-    private void setupToolbar(){
-        Toolbar toolbar = findViewById(R.id.top_toolbar);
-        setSupportActionBar(toolbar);
-
-        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                Log.d(TAG,"onMenuItemClick: clicked menu item: " + item);
-
-                switch (item.getItemId()){
-                    case R.id.LogOut:
-                        Log.d(TAG,"onMenuItemClıck: Navigating to profile preferences.");
-                    case R.id.help_main:
-                        Log.d(TAG,"onMenuItemClıck: Navigating to profile preferences.");
-//                        Intent intent = new Intent(MainActivity.this, Help.class);
-//                        startActivity(intent);
-                }
-
-                return false;
-            }
-        });
     }
 
     private class ScaleListener extends ScaleGestureDetector.SimpleOnScaleGestureListener{

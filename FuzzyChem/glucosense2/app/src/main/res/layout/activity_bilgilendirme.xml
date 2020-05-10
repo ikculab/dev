@@ -29,7 +29,7 @@
             android:layout_marginEnd="30dp"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="30dp"
-            android:background="@color/darkBlue"
+            android:background="@color/darkBlue2"
             android:onClick="nextBtnClicked"/>
 
         <Button
@@ -45,7 +45,7 @@
             android:layout_marginEnd="30dp"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="30dp"
-            android:background="@color/darkBlue"
+            android:background="@color/darkBlue2"
             android:onClick="finBtnClicked"/>
 
         <TextView
@@ -53,11 +53,11 @@
             android:layout_height="wrap_content"
             android:id="@+id/bilgi1"
             android:padding="20dp"
-            android:text="Pick photo from gallery"
+            android:text="@string/bilgilendirme1"
             android:textSize="26sp"
             android:textStyle="bold"
             android:textAlignment="center"
-            android:textColor="@color/darkBlue"
+            android:textColor="@color/darkBlue2"
             android:layout_centerHorizontal="true"
             android:layout_below="@id/arrows"/>
 
@@ -66,11 +66,11 @@
             android:layout_height="wrap_content"
             android:id="@+id/bilgi2"
             android:padding="20dp"
-            android:text="Take a picture"
+            android:text="@string/bilgilendirme2"
             android:textSize="26sp"
             android:textStyle="bold"
             android:textAlignment="center"
-            android:textColor="@color/darkBlue"
+            android:textColor="@color/darkBlue2"
             android:layout_centerHorizontal="true"
             android:layout_below="@id/arrows"
             android:visibility="invisible"/>

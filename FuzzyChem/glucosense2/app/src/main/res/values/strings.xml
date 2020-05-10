@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">FuzzyChem</string>
+    <string name="bilgilendirme1">Select photo from gallery</string>
+    <string name="bilgilendirme2">Take a picture</string>
 </resources>

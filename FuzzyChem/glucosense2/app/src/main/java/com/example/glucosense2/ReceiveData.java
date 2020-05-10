@@ -97,9 +97,9 @@ public class ReceiveData extends AppCompatActivity {
                                                     pro_bar.setProgress(stat);
                                                     settingProgressColor();
                                                     if(floatStatus<1){
-                                                        tView2.setText(stat2+"/"+pro_bar.getMax());
+                                                        tView2.setText(stat2+" ppm");
                                                     } else{
-                                                        tView2.setText(stat+"/"+pro_bar.getMax());
+                                                        tView2.setText(stat+" ppm");
                                                     }
 
                                                 }
@@ -111,10 +111,10 @@ public class ReceiveData extends AppCompatActivity {
                                                 e.printStackTrace();
                                             }
                                         }
-                                        if (stat==100){
-                                            tView2.setText("100/"+pro_bar.getMax());
+                                        if (stat>=100){
+                                            tView2.setText("100 ppm");
                                         } else {
-                                            tView2.setText(vals+"/"+pro_bar.getMax());
+                                            tView2.setText(vals+" ppm");
                                         }
 
                                     }

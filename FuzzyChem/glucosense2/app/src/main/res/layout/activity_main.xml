@@ -31,14 +31,6 @@
             app:srcCompat="@drawable/background_image"
             android:background="@color/renk4"/>
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/circImView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@id/btnSend"
-            android:layout_marginTop="50dp"
-            app:civ_border_width="2dp"
-            app:civ_border_color="#FF000000"/>
 
         <com.theartofdev.edmodo.cropper.CropImageView
             android:id="@+id/cropImageView"
@@ -49,7 +41,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.085"
             tools:layout_editor_absoluteX="0dp"
-            android:layout_above="@id/btnSend">
+            android:layout_above="@id/btnSave">
         </com.theartofdev.edmodo.cropper.CropImageView>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -114,35 +106,6 @@
             android:layout_marginBottom="3dp"
             android:onClick="btnSendClicked"/>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:id="@+id/cropStyleLayout"
-            android:layout_above="@id/btnSave">
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true">
-
-                <RadioButton
-                    android:id="@+id/rectRad"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Rectangle"
-                    android:onClick="btnRectRadClicked"/>
-
-                <RadioButton
-                    android:id="@+id/circRad"
-                    android:layout_toEndOf="@id/rectRad"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Circle"
-                    android:layout_marginStart="30dp"
-                    android:onClick="btnCircRadClicked"/>
-            </RelativeLayout>
-
-        </RelativeLayout>
 
     </RelativeLayout>
 
